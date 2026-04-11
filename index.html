@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CFG Simulator</title>
+</head>
+<body>
+
+<h2>CFG Simulation (S → aSb | ε)</h2>
+
+<input type="text" id="input" placeholder="Enter string">
+<button onclick="simulate()">Simulate</button>
+
+<pre id="output"></pre>
+
+<script>
+function simulate() {
+    let str = document.getElementById("input").value;
+    let output = "Derivation:\n";
+
+    let n = str.length / 2;
+
+    output += "S\n";
+
+    for (let i = 0; i < n; i++) {
+        output += "→ " + "a".repeat(i+1) + "S" + "b".repeat(i+1) + "\n";
+    }
+
+    output += "→ " + str;
+
+    document.getElementById("output").innerText = output;
+}
+</script>
+
+</body>
+</html>
